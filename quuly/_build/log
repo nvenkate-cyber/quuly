@@ -1,0 +1,6 @@
+# dune init proj quuly
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /Users/nandinivenkatesh/.cache/dune/db
+# Workspace root: /Users/nandinivenkatesh/quuly/quuly
+# Auto-detected concurrency: 12
