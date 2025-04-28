@@ -34,7 +34,7 @@ init =
 
 -- UPDATE
 
-type Msg = Enqueue
+type Msg = Enqueue | Dequeue
 
 update : Msg -> Model -> Model
 update msg model =
@@ -44,8 +44,9 @@ update msg model =
                 lastName = "Venkatesh",
                 email = "nvenkate@umd.edu",
                 standing = (length model) + 1 } model
-    Dequeue ->
-      dequeue model
+    Dequeue -> case (dequeue model) of
+      Nothing -> model
+      Just (val, q) -> q
 
 
 -- VIEW
@@ -58,5 +59,5 @@ view model =
   div []
     [ button [ onClick Enqueue ] [ text "Add to queue" ]
     , text (viewQueue model)
-    , [ button [ onClick Dequeue ] [ text "Remove from queue"]
+    , button [ onClick Dequeue ] [ text "Remove from queue"]
     ]
